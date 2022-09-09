@@ -14,8 +14,8 @@ const initialMessages = [
     },
     {
         id: 2,
-        title: "T3",
-        description: "D3",
+        title: "T2",
+        description: "D2",
         image: require("../assets/mosh.jpg")
     },
     {
@@ -29,6 +29,7 @@ const initialMessages = [
 
 const MessagesScreen = () => {
     const [messages, setMessages] = useState(initialMessages);
+    const [refresh, setRefresh] = useState<boolean>(false)
 
     const handleDelete = (message: any) => {
         let newMessages = messages.filter(m => m.id !== message.id)
@@ -41,6 +42,19 @@ const MessagesScreen = () => {
                     <ListItemDeleteAction onPress={() => handleDelete(item)}/>)
                 }
                      subtitle={item.description} title={item.title} key={item.id}/>} ItemSeparatorComponent={ListItemSeparator}
+                      refreshing={refresh} onRefresh={() => setMessages([   {
+                id: 2,
+                title: "T2",
+                description: "D2",
+                image: require("../assets/mosh.jpg")
+            },
+                {
+                    id: 3,
+                    title: "T3",
+                    description: "D3",
+                    image: require("../assets/mosh.jpg")
+                },
+            ])}
             />
         </Screen>
     )
