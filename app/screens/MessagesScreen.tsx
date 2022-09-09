@@ -1,5 +1,5 @@
 import React from 'react'
-import { FlatList} from 'react-native'
+import {FlatList} from 'react-native'
 import ListItem from '../components/ListItem'
 import Screen from '../components/Screen'
 import ListItemSeparator from "../components/ListItemSeparator";
@@ -27,17 +27,14 @@ const messages = [
 ]
 
 const MessagesScreen = () => {
-  return (
-    <Screen>
-        <FlatList keyExtractor={message => message.id.toString()}
-            data={messages}
-            renderItem={({item}) => <ListItem image={item.image} subtitle={item.description}
-             title={item.title} key={item.id}
-             />}
-             ItemSeparatorComponent={ListItemSeparator}
-        />
-    </Screen>
-  )
+    return (
+        <Screen>
+            <FlatList keyExtractor={message => message.id.toString()}
+                data={messages} renderItem={({item}) => <ListItem onPress={() => {}} image={item.image}
+                     subtitle={item.description} title={item.title} key={item.id}/>} ItemSeparatorComponent={ListItemSeparator}
+            />
+        </Screen>
+    )
 }
 
 export default MessagesScreen
