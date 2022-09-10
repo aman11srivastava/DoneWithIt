@@ -6,5 +6,6 @@ export default {
     medium_gray: "#6e6969",
     light_gray: "#f8f4f4",
     danger: "#ff5252",
-    yellow: "#ffe66d"
+    yellow: "#ffe66d",
+    dark_gray: "#0c0c0c"
 }

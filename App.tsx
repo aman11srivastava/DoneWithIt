@@ -9,6 +9,7 @@ import Icon from "./app/components/Icon";
 import ListItem from "./app/components/ListItem";
 import AccountScreen from "./app/screens/AccountScreen";
 import ListingsScreen from "./app/screens/ListingsScreen";
+import AppTextInput from "./app/components/AppTextInput";
 
 export default function App() {
   return (
@@ -21,7 +22,8 @@ export default function App() {
         {/*<Icon name={"email"} size={50} backgroundColor={"red"} iconColor={"white"}/>*/}
         {/*<ListItem imageComponent={<Icon name={"email"} size={50} backgroundColor={"red"} iconColor={"white"}/>} title={"Test"} subtitle={"Subtitle"} image={""} onPress={() => {}}/>*/}
         {/*<AccountScreen/>*/}
-        <ListingsScreen/>
+        {/*<ListingsScreen/>*/}
+        <AppTextInput placeholder={"Username"} icon={"email"}/>
     </Screen>
   )
 };
