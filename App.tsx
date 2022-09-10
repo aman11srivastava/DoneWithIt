@@ -10,8 +10,26 @@ import ListItem from "./app/components/ListItem";
 import AccountScreen from "./app/screens/AccountScreen";
 import ListingsScreen from "./app/screens/ListingsScreen";
 import AppTextInput from "./app/components/AppTextInput";
+import AppPicker from "./app/components/AppPicker";
+import {useState} from "react";
+
+const categories = [
+    {
+        value: 1,
+        label: "Furniture"
+    },
+    {
+        value: 2,
+        label: "Clothes"
+    },
+    {
+        value: 3,
+        label: "Cameras"
+    },
+]
 
 export default function App() {
+    const [category, setCategory] = useState(categories[0]);
   return (
     <Screen>
       {/* <WelcomeScreen/> */}
@@ -23,7 +41,8 @@ export default function App() {
         {/*<ListItem imageComponent={<Icon name={"email"} size={50} backgroundColor={"red"} iconColor={"white"}/>} title={"Test"} subtitle={"Subtitle"} image={""} onPress={() => {}}/>*/}
         {/*<AccountScreen/>*/}
         {/*<ListingsScreen/>*/}
-        <AppTextInput placeholder={"Username"} icon={"email"}/>
+        {/*<AppTextInput placeholder={"Username"} icon={"email"}/>*/}
+        <AppPicker selectedItem={category} onSelectItem={(item: any) => setCategory(item)} items={categories} icon={"apps"} placeholder={"Category"}/>
     </Screen>
   )
 };
