@@ -8,7 +8,7 @@ import Swipeable from "react-native-gesture-handler/Swipeable";
 interface ListItemProps {
     title: string
     subtitle?: string
-    image: any
+    image?: any
     onPress: () => void;
     renderRightActions?: () => ReactNode
     imageComponent?: JSX.Element
