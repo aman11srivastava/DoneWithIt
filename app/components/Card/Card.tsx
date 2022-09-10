@@ -14,7 +14,7 @@ export const Card = (props: CardProps) => {
     return (
         <>
             <View style={styles.card}>
-                {/* <Image source={image}/> */}
+                 <Image style={styles.image} source={image}/>
                 <View style={styles.detailsCointainer}>
                     <AppText style={styles.title}>{title}</AppText>
                     <AppText style={styles.subTitle}>{subtitle}</AppText>
