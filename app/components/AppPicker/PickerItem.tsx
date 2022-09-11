@@ -1,17 +1,17 @@
 import React from "react";
 import {StyleSheet, TouchableOpacity} from "react-native";
 import AppText from "../AppText";
+import {PickerItemCommonProps} from "../../config/utils";
 
-interface PickerItemProps {
-    label: string
-    onPress: (value: any) => void
+interface PickerItemProps extends PickerItemCommonProps {
+    item: any
 }
 
 export const PickerItem = (props: PickerItemProps) => {
-    const {label, onPress} = props;
+    const {item, onPress} = props;
     return (
         <TouchableOpacity onPress={onPress}>
-            <AppText style={styles.text}>{label}</AppText>
+            <AppText style={styles.text}>{item.label}</AppText>
         </TouchableOpacity>
     )
 };

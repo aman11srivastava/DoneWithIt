@@ -26,4 +26,8 @@ export const menuItems: menu[] = [
             backgroundColor: colors.secondary
         }
     },
-]
+];
+
+export interface PickerItemCommonProps {
+    onPress: (value: any) => void
+}

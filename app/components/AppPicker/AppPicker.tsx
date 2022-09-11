@@ -13,10 +13,12 @@ interface AppPickerProps {
     items?: any[]
     selectedItem: any
     onSelectItem: (value: any) => void;
+    PickerItemComponent?: React.ElementType
+    numberOfColumns: number
 }
 
 export const AppPicker = (props: AppPickerProps) => {
-    const {placeholder, icon, items, selectedItem, onSelectItem} = props;
+    const {placeholder, icon, items, selectedItem, onSelectItem,  PickerItemComponent = PickerItem, numberOfColumns = 1} = props;
     const [visible, setVisible] = useState<boolean>(false);
 
     function handleSelection (item: any) {
@@ -37,7 +39,7 @@ export const AppPicker = (props: AppPickerProps) => {
             <Modal visible={visible} animationType={"slide"}>
                 <Screen>
                     <Button title={"Close"} onPress={() => setVisible(false)}/>
-                    <FlatList data={items} renderItem={({item}) => <PickerItem label={item.label} onPress={() => handleSelection(item)}/>} keyExtractor={(item: any) => item.value.toString()}/>
+                    <FlatList numColumns={numberOfColumns} data={items} renderItem={({item}) => <PickerItemComponent item={item} label={item.label} onPress={() => handleSelection(item)}/>} keyExtractor={(item: any) => item.value.toString()}/>
                 </Screen>
             </Modal>
         </>
