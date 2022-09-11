@@ -1,4 +1,4 @@
-import {View } from 'react-native';
+import {View} from 'react-native';
 import Card from './app/components/Card/Card';
 import ListingDetailsScreen from './app/screens/ListingDetailsScreen';
 import MessagesScreen from './app/screens/MessagesScreen';
@@ -29,21 +29,22 @@ const categories = [
 ]
 
 export default function App() {
-    const [category, setCategory] = useState(categories[0]);
-  return (
-    <Screen>
-      {/* <WelcomeScreen/> */}
-      {/* <ViewImageScreen/> */}
-      {/* <Card title='Aman' subtitle='Srivastava' image={""}/> */}
-        {/* <ListingDetailsScreen/> */}
-        {/*<MessagesScreen/>*/}
-        {/*<Icon name={"email"} size={50} backgroundColor={"red"} iconColor={"white"}/>*/}
-        {/*<ListItem imageComponent={<Icon name={"email"} size={50} backgroundColor={"red"} iconColor={"white"}/>} title={"Test"} subtitle={"Subtitle"} image={""} onPress={() => {}}/>*/}
-        {/*<AccountScreen/>*/}
-        {/*<ListingsScreen/>*/}
-        {/*<AppTextInput placeholder={"Username"} icon={"email"}/>*/}
-        <AppPicker selectedItem={category} onSelectItem={(item: any) => setCategory(item)} items={categories} icon={"apps"} placeholder={"Category"}/>
-    </Screen>
-  )
+    const [category, setCategory] = useState(null);
+    return (
+        <Screen>
+            {/* <WelcomeScreen/> */}
+            {/* <ViewImageScreen/> */}
+            {/* <Card title='Aman' subtitle='Srivastava' image={""}/> */}
+            {/* <ListingDetailsScreen/> */}
+            {/*<MessagesScreen/>*/}
+            {/*<Icon name={"email"} size={50} backgroundColor={"red"} iconColor={"white"}/>*/}
+            {/*<ListItem imageComponent={<Icon name={"email"} size={50} backgroundColor={"red"} iconColor={"white"}/>} title={"Test"} subtitle={"Subtitle"} image={""} onPress={() => {}}/>*/}
+            {/*<AccountScreen/>*/}
+            {/*<ListingsScreen/>*/}
+            {/*<AppTextInput placeholder={"Username"} icon={"email"}/>*/}
+            <AppPicker selectedItem={category} onSelectItem={(item: any) => setCategory(item)} items={categories}
+                       icon={"apps"} placeholder={"Category"}/>
+        </Screen>
+    )
 };
 

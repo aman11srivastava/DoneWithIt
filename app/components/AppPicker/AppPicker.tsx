@@ -12,29 +12,31 @@ interface AppPickerProps {
     placeholder: string
     items?: any[]
     selectedItem: any
-    onSelectItem: (args: any) => void
+    onSelectItem: (value: any) => void;
 }
 
 export const AppPicker = (props: AppPickerProps) => {
     const {placeholder, icon, items, selectedItem, onSelectItem} = props;
     const [visible, setVisible] = useState<boolean>(false);
 
+    function handleSelection (item: any) {
+        setVisible(false);
+        onSelectItem(item)
+    }
+
     return (
         <>
             <TouchableWithoutFeedback onPress={() => setVisible(true)}>
                 <View style={styles.container}>
                     {icon && <MaterialCommunityIcons style={styles.icon} size={20} color={defaultStyles.colors.medium_gray} name={icon}/>}
-                    <AppText style={styles.text}>{selectedItem.label ? selectedItem.label : placeholder}</AppText>
+                    <AppText style={styles.text}>{selectedItem ? selectedItem.label : placeholder}</AppText>
                     <MaterialCommunityIcons size={20} color={defaultStyles.colors.medium_gray} name={"chevron-down"}/>
                 </View>
             </TouchableWithoutFeedback>
             <Modal visible={visible} animationType={"slide"}>
                 <Screen>
                     <Button title={"Close"} onPress={() => setVisible(false)}/>
-                    <FlatList data={items} renderItem={({item}) => <PickerItem label={item.label} onPress={(item: any) => {
-                        setVisible(false);
-                        onSelectItem(item)
-                    }}/>} keyExtractor={(item: any) => item.value.toString()}/>
+                    <FlatList data={items} renderItem={({item}) => <PickerItem label={item.label} onPress={() => handleSelection(item)}/>} keyExtractor={(item: any) => item.value.toString()}/>
                 </Screen>
             </Modal>
         </>
