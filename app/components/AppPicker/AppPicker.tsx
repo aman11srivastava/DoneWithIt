@@ -8,7 +8,7 @@ import Screen from "../Screen";
 import PickerItem from "./PickerItem";
 
 interface AppPickerProps {
-    icon: any
+    icon?: any
     placeholder: string
     items?: any[]
     selectedItem: any
@@ -29,7 +29,8 @@ export const AppPicker = (props: AppPickerProps) => {
             <TouchableWithoutFeedback onPress={() => setVisible(true)}>
                 <View style={styles.container}>
                     {icon && <MaterialCommunityIcons style={styles.icon} size={20} color={defaultStyles.colors.medium_gray} name={icon}/>}
-                    <AppText style={styles.text}>{selectedItem ? selectedItem.label : placeholder}</AppText>
+                    {selectedItem ? <AppText style={styles.text}>{selectedItem.label}</AppText> :
+                        <AppText style={styles.placeholder}>{placeholder}</AppText>}
                     <MaterialCommunityIcons size={20} color={defaultStyles.colors.medium_gray} name={"chevron-down"}/>
                 </View>
             </TouchableWithoutFeedback>

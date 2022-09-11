@@ -13,12 +13,12 @@ import AppTextInput from "./app/components/AppTextInput";
 import AppPicker from "./app/components/AppPicker";
 import {useState} from "react";
 import LoginScreen from "./app/screens/LoginScreen";
+import ListingEditScreen from "./app/screens/ListingEditScreen";
 
 export default function App() {
     const [category, setCategory] = useState(null);
-    return <LoginScreen/>
-    // return (
-        // <Screen>
+    return (
+        <Screen>
             {/* <WelcomeScreen/> */}
             {/* <ViewImageScreen/> */}
             {/* <Card title='Aman' subtitle='Srivastava' image={""}/> */}
@@ -31,7 +31,8 @@ export default function App() {
             {/*<AppTextInput placeholder={"Username"} icon={"email"}/>*/}
             {/*<AppPicker selectedItem={category} onSelectItem={(item: any) => setCategory(item)} items={categories}*/}
             {/*           icon={"apps"} placeholder={"Category"}/>*/}
-        // </Screen>
-    // )
+                <ListingEditScreen/>
+        </Screen>
+    )
 };
 

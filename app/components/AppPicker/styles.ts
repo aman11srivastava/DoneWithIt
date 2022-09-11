@@ -15,5 +15,9 @@ export const styles = StyleSheet.create({
     },
     text: {
         flex: 1
+    },
+    placeholder: {
+        color: defaultStyles.colors.medium_gray,
+        flex: 1
     }
 })

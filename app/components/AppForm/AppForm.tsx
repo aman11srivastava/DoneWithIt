@@ -1,9 +1,8 @@
 import React from "react";
-import {LoginScreenState} from "../../screens/LoginScreen";
 import {Formik} from "formik";
 
 interface AppFormProps {
-    initialValues: LoginScreenState
+    initialValues: any
     validationSchema: any
     onSubmit: (value: any) => void
     children: JSX.Element
