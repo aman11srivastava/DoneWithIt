@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import * as Yup from 'yup';
 import Screen from "../components/Screen";
 import AppForm from "../components/AppForm";
@@ -8,7 +8,7 @@ import AppFormPicker from "../components/AppFormPicker";
 import SubmitButton from "../components/SubmitButton";
 import CategoryPickerItem from "../components/CategoryPickerItem";
 import FormImagePicker from "../components/FormImagePicker";
-import * as Location from 'expo-location';
+import useForegroundLocation from "../hooks/useForegroundLocation";
 
 const validationSchema = Yup.object().shape({
     title: Yup.string().required().min(1).label("Title"),
@@ -83,23 +83,10 @@ const initialValues = {
     images: []
 }
 
-export interface LocationState {
-    latitude: number | undefined
-    longitude: number | undefined
-}
 
 export const ListingEditScreen = () => {
-    const [location, setLocation] = useState<LocationState>({latitude: undefined, longitude: undefined});
-    const requestLocation = async () => {
-        const {granted} = await Location.requestForegroundPermissionsAsync();
-        if(!granted) return;
-        const result = await Location.getLastKnownPositionAsync();
-        setLocation({latitude: result?.coords.latitude, longitude: result?.coords.longitude})
-    }
-
-    useEffect(() => {
-        requestLocation();
-    }, [])
+    
+    const location = useForegroundLocation();
 
     return (
         <Screen style={styles.container}>
