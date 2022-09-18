@@ -6,7 +6,8 @@ export type menu = {
         name: any
         backgroundColor: string
     }
-    id: number
+    id: number,
+    targetScreen: any
 }
 
 export const menuItems: menu[] = [
@@ -16,7 +17,8 @@ export const menuItems: menu[] = [
         icon: {
             name: "format-list-bulleted",
             backgroundColor: colors.primary
-        }
+        },
+        targetScreen: ""
     },
     {
         id: 2,
@@ -24,7 +26,8 @@ export const menuItems: menu[] = [
         icon: {
             name: "email",
             backgroundColor: colors.secondary
-        }
+        },
+        targetScreen: "Messages"
     },
 ];
 
@@ -57,4 +60,9 @@ export type AppStateTabList = {
 export type FeedStateStackList = {
     Listings: undefined
     ListingDetails: undefined
+}
+
+export type AccountStateStackList = {
+    Account: undefined
+    Messages: undefined
 }
