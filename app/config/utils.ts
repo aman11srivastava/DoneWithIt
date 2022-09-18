@@ -31,3 +31,13 @@ export const menuItems: menu[] = [
 export interface PickerItemCommonProps {
     onPress: (value: any) => void
 }
+
+export type RootStateParamsList = {
+    Tweets: undefined
+    TweetDetails: undefined
+}
+
+export type RootStateTabsList = {
+    Feed: undefined
+    Account: undefined
+}
