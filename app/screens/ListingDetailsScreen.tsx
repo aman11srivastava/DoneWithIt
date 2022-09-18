@@ -1,16 +1,22 @@
+import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import React from 'react'
 import {Image, StyleSheet, View} from 'react-native'
 import AppText from '../components/AppText'
 import ListItem from '../components/ListItem'
 import colors from '../config/colors'
+import { FeedStateStackList } from '../config/utils'
 
-const ListingDetailsScreen = () => {
+type ListingDetailsScreenProps = NativeStackScreenProps<FeedStateStackList, "ListingDetails">
+
+const ListingDetailsScreen = (props: ListingDetailsScreenProps) => {
+    const listing = props.route?.params;
+
     return (
         <View>
-            <Image style={styles.image} source={require("../assets/jacket.jpg")}/>
+            <Image style={styles.image} source={listing?.image}/>
             <View style={styles.detailsContainer}>
-                <AppText style={styles.title}>Red jacket</AppText>
-                <AppText style={styles.price}>$100</AppText>
+                <AppText style={styles.title}>{listing?.title}</AppText>
+                <AppText style={styles.price}>{`$${listing?.price}`}</AppText>
                 <View style={styles.userContainer}>
                     <ListItem
                         onPress={() => {}}

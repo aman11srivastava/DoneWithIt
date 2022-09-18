@@ -47,3 +47,14 @@ export type RootStateStackList = {
     Login: undefined;
     Register: undefined;
 }
+
+export type AppStateTabList = {
+    Feed: undefined
+    ListingEdit: undefined
+    Account: undefined     
+}
+
+export type FeedStateStackList = {
+    Listings: undefined
+    ListingDetails: undefined
+}

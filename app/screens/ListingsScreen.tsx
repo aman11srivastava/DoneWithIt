@@ -3,8 +3,17 @@ import Screen from "../components/Screen";
 import {FlatList, StyleSheet} from "react-native";
 import Card from "../components/Card/Card";
 import colors from "../config/colors";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { FeedStateStackList } from "../config/utils";
 
-const listings = [
+export type ListingItemType = {
+    id: number
+    title: string
+    price: number
+    image: any
+}
+
+const listings: ListingItemType[] = [
     {
         id: 1,
         title: "Red jacket for sale",
@@ -19,10 +28,20 @@ const listings = [
     },
 ]
 
-export const ListingsScreen = () => {
+type ListingsScreenProps = NativeStackScreenProps<FeedStateStackList, "Listings">
+
+export const ListingsScreen = (props: ListingsScreenProps) => {
+    const {navigation} = props;
+
+    const handleNavigation = (item: ListingItemType) => {
+        //@ts-ignore
+        navigation.navigate("ListingDetails", item)
+    }
+
     return (
         <Screen style={styles.screen}>
-            <FlatList data={listings} renderItem={({item}) => <Card title={item.title} subtitle={`$${item.price.toString()}`}  image={item.image}/>}
+            <FlatList data={listings} renderItem={({item}) => <Card onPress={() => handleNavigation(item)} 
+            title={item.title} subtitle={`$${item.price.toString()}`}  image={item.image}/>}
                       keyExtractor={listing => listing.id.toString()}/>
         </Screen>
     )
