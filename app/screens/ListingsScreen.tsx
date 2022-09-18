@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Screen from "../components/Screen";
-import {ActivityIndicator, Button, FlatList, StyleSheet, View} from "react-native";
+import {FlatList, StyleSheet, View} from "react-native";
 import Card from "../components/Card/Card";
 import colors from "../config/colors";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
@@ -10,6 +10,7 @@ import { LocationState } from "../hooks/useForegroundLocation";
 import { getListings } from "../api/getListings";
 import AppText from "../components/AppText";
 import AppButton from "../components/AppButton";
+import AppActivityIndicator from "../components/AppActivityIndicator";
 
 export type ImageStructure = {
     url: string
@@ -71,7 +72,7 @@ export const ListingsScreen = (props: ListingsScreenProps) => {
                     <AppButton title="Retry" onPress={loadListings}/>
                 </View>
             )}
-            <ActivityIndicator animating={state.loading} size="large"/>
+            <AppActivityIndicator visible={state.loading}/>
             <FlatList data={state.listings} renderItem={({item}) => <Card onPress={() => handleNavigation(item)} 
             title={item.title} subtitle={`$${item.price.toString()}`}  imageURL={item.images[0].url}/>}
                       keyExtractor={listing => listing.id.toString()}/>
