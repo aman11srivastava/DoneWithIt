@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import * as Location from 'expo-location';
 
-interface LocationState {
+export interface LocationState {
     latitude: number | undefined
     longitude: number | undefined
 }

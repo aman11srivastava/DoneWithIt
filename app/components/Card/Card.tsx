@@ -6,16 +6,16 @@ import AppText from "../AppText";
 interface CardProps {
     title: string
     subtitle: string
-    image: any
+    imageURL: string
     onPress?: () => void;
 }
 
 export const Card = (props: CardProps) => {
-    const {image, subtitle, title, onPress} = props;
+    const {imageURL, subtitle, title, onPress} = props;
     return (
         <TouchableOpacity onPress={onPress}>
             <View style={styles.card}>
-                 <Image style={styles.image} source={image}/>
+                 <Image style={styles.image} source={{uri: imageURL}}/>
                 <View style={styles.detailsCointainer}>
                     <AppText style={styles.title}>{title}</AppText>
                     <AppText style={styles.subTitle}>{subtitle}</AppText>
