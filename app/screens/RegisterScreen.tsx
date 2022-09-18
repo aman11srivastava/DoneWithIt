@@ -55,7 +55,7 @@ export const RegisterScreen = () => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
+    margin: 10,
   },
 });
 

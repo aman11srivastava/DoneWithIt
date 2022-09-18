@@ -41,3 +41,9 @@ export type RootStateTabsList = {
     Feed: undefined
     Account: undefined
 }
+
+export type RootStateStackList = {
+    Welcome: undefined;
+    Login: undefined;
+    Register: undefined;
+}

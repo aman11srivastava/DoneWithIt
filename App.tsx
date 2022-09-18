@@ -5,6 +5,7 @@ import {NavigationContainer, useNavigation} from '@react-navigation/native';
 import { RootStateParamsList, RootStateTabsList } from "./app/config/utils";
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {MaterialCommunityIcons} from '@expo/vector-icons'
+import AuthNavigator from "./app/navigation/AuthNavigator";
 
 type TweetsScreenProps = NativeStackScreenProps<RootStateParamsList, "Tweets">;
 
@@ -87,8 +88,7 @@ export default function App() {
 
     return (
         <NavigationContainer>
-            {/* <StackNavigator/> */}
-            <TabNavigator/>
+            <AuthNavigator/>
         </NavigationContainer>
     )
 };
