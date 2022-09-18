@@ -1,3 +1,4 @@
+import routes from "../navigation/routes";
 import colors from "./colors";
 
 export type menu = {
@@ -27,7 +28,7 @@ export const menuItems: menu[] = [
             name: "email",
             backgroundColor: colors.secondary
         },
-        targetScreen: "Messages"
+        targetScreen: routes.MESSAGES
     },
 ];
 

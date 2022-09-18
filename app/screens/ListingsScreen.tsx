@@ -5,6 +5,7 @@ import Card from "../components/Card/Card";
 import colors from "../config/colors";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { FeedStateStackList } from "../config/utils";
+import routes from "../navigation/routes";
 
 export type ListingItemType = {
     id: number
@@ -35,7 +36,7 @@ export const ListingsScreen = (props: ListingsScreenProps) => {
 
     const handleNavigation = (item: ListingItemType) => {
         //@ts-ignore
-        navigation.navigate("ListingDetails", item)
+        navigation.navigate(routes.LISTING_DETAILS, item)
     }
 
     return (

@@ -4,6 +4,7 @@ import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
 import AppButton from '../components/AppButton';
 import colors from '../config/colors';
 import { RootStateStackList } from '../config/utils';
+import routes from '../navigation/routes';
 
 type WelcomeScreenProps = NativeStackScreenProps<RootStateStackList, "Welcome">;
 
@@ -16,8 +17,8 @@ export const WelcomeScreen = (props: WelcomeScreenProps) => {
             <Text style={styles.tagline}>Sell What You Don't Need</Text>
         </View>
         <View style={styles.buttonContainer}>
-            <AppButton title='Login' onPress={() => navigation.navigate("Login")}/>
-            <AppButton color={colors.secondary} title='Register' onPress={() => navigation.navigate("Register")}/>
+            <AppButton title='Login' onPress={() => navigation.navigate(routes.LOGIN)}/>
+            <AppButton color={colors.secondary} title='Register' onPress={() => navigation.navigate(routes.REGISTER)}/>
         </View>
     </ImageBackground>
   )
